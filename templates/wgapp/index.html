@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+{% if latest_tasks_list %}
+    <ul>
+    {% for task in latest_tasks_list %}
+        <li><a href="/wgapp/{{ task.id }}/">{{ task.done_on }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No tasks were done.</p>
+{% endif %}
+</body>
+</html>
