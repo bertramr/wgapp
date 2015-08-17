@@ -5,10 +5,19 @@
     <title></title>
 </head>
 <body>
+{% if flatmate_list %}
+    <ul>
+    {% for flatmate in flatmate_list %}
+        <li><a href="{%  url 'wgapp:detail' flatmate.id %}">{{ flatmate.full_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No tasks were done.</p>
+{% endif %}
 {% if latest_tasks_list %}
     <ul>
     {% for task in latest_tasks_list %}
-        <li><a href="/wgapp/{{ task.id }}/">{{ task.done_on }}</a></li>
+        <li><a href="{% url 'wgapp:detail' task.id %}">{{ task.done_on }}</a></li>
     {% endfor %}
     </ul>
 {% else %}

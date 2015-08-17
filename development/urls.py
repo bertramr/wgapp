@@ -17,6 +17,6 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^wgapp/', include('wgapp.urls')),
+    url(r'^wgapp/', include('wgapp.urls', namespace="wgapp")),
     url(r'^admin/', include(admin.site.urls)),
 ]
