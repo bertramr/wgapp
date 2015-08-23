@@ -1,4 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
+from django.http import HttpResponseRedirect, HttpResponse
+from django.core.urlresolvers import reverse
+
+from datetime import date
 
 from models import TaskJournal, Flatmate, Room, TaskList
 
@@ -28,8 +32,24 @@ def room_detail(request, room_id):
     return render(request, 'wgapp/room_detail.html', context)
 
 def choose_flatmate(request, task_id):
+
+    task = get_object_or_404(TaskList, pk=task_id)
     flatmate_list = Flatmate.objects.all()
-    task = TaskList.objects.get(pk=task_id)
     context = {'flatmate_list': flatmate_list,
                'task': task}
-    return render(request, 'wgapp/choose_flatmate.html', context)
+    try:
+        flatmate_id = request.POST['flatmate']
+    except (KeyError, Flatmate.DoesNotExist):
+        # Redisplay the question voting form.
+        return render(request, 'wgapp/choose_flatmate.html', context)
+    else:
+        tj = TaskJournal()
+        tj.task = task
+        tj.done_by = Flatmate.objects.get(pk=flatmate_id)
+        tj.done_on = date.today()
+        tj.save()
+        # Always return an HttpResponseRedirect after successfully dealing
+        # with POST data. This prevents data from being posted twice if a
+        # user hits the Back button.
+        return HttpResponseRedirect(reverse('wgapp:room_detail', args=(task.room.id,)))
+

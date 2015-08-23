@@ -25,7 +25,6 @@ class TaskList(models.Model):
     def __unicode__(self):
         return ': '.join([self.description, self.room.name])
 
-
 class TaskJournal(models.Model):
     done_by = models.ForeignKey(Flatmate)
     task = models.ForeignKey(TaskList)
