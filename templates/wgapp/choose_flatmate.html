@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<h1>{{ task.description }}</h1>
+<ul>
+    {% for flatmate in flatmate_list %}
+        <li>{{ flatmate.full_name }}</li>
+    {% endfor %}
+
+</ul>
+</body>
+</html>

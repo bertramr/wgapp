@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<h1>Rooms</h1>
+<ul>
+{% for room in room_list.all %}
+    <li><a href="{% url 'wgapp:room_detail' room.id %}">{{ room.name }}</a></li>
+{% endfor %}
+</ul>
+
+</body>
+</html>

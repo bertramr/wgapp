@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+{% if task_list %}
+<ul>
+    {% for task in task_list %}
+        <li><a href="{%  url 'wgapp:choose_flatmate' task.id %}">{{ task.description }}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+    <p>No tasks are listed.</p>
+{% endif %}
+
+</body>
+</html>
