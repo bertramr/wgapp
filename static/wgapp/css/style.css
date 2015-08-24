@@ -1,23 +1,24 @@
 /*
 see: http://ethanschoonover.com/solarized
-
-$base03:    #002b36;
-$base02:    #073642;
-$base01:    #586e75;
-$base00:    #657b83;
-$base0:     #839496;
-$base1:     #93a1a1;
-$base2:     #eee8d5;
-$base3:     #fdf6e3;
-$yellow:    #b58900;
-$orange:    #cb4b16;
-$red:       #dc322f;
-$magenta:   #d33682;
-$violet:    #6c71c4;
-$blue:      #268bd2;
-$cyan:      #2aa198;
-$green:     #859900;
 */
+:root {
+    --base03: #002b36;
+    --base02: #073642;
+    --base01: #586e75;
+    --base00: #657b83;
+    --base0: #839496;
+    --base1: #93a1a1;
+    --base2: #eee8d5;
+    --base3: #fdf6e3;
+    --yellow: #b58900;
+    --orange: #cb4b16;
+    --red: #dc322f;
+    --magenta: #d33682;
+    --violet: #6c71c4;
+    --blue: #268bd2;
+    --cyan: #2aa198;
+    --green: #859900;
+}
 
 @viewport {
     width: 320px;
@@ -27,37 +28,49 @@ $green:     #859900;
 
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: xx-large;
-    background-color: #002b36;
-    color: #b58900;
+    font-size: 16pt;
+    background-color: var(--base03);
+    color: var(--green);
 }
 
 a {
     text-decoration: none;
-    color: #859900;
+    color: var(--green);
+    display: block;
+    width: 320px;
+    min-height: 48px;
 }
 
 ul {
     list-style: none;
     padding: 0px;
     margin: 0px;
-    color: #b58900;
 }
-li {
+
+
+li, h1, label, input[type=radio]{
+    text-decoration: none;
     margin-bottom: 20px;
     padding: 2px 6px 2px 6px;
-    border-top: 1px solid #fdf6e3;
-    border-right: 1px solid #586e75;
-    border-bottom: 1px solid #586e75;
-    border-left: 1px solid #fdf6e3;
-    background-color: #073642;
+    border-top: 5px solid var(--base1);
+    border-right: 5px solid var(--base01);
+    border-bottom: 5px solid var(--base01);
+    border-left: 5px solid var(--base1);
+    background-color: var(--base02);
+    width: 320px;
+    min-height: 48px;
+    cursor: pointer;
+    display: block;
+    text-align: center;
 }
-h1 {
-    margin-bottom: 20px;
-    padding: 2px 6px 2px 6px;
-    border-top: 1px solid #fdf6e3;
-    border-right: 1px solid #586e75;
-    border-bottom: 1px solid #586e75;
-    border-left: 1px solid #fdf6e3;
-    background-color: #073642;
+
+
+input[type=radio] {
+    display: none;
+}
+
+
+input[type=radio]:checked + label {
+    color: var(--yellow);
+    background-color: var(--base03);
 }
