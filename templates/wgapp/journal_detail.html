@@ -6,8 +6,8 @@
 </head>
 <body>
 
-<h1>{{ journal.task.description }}</h1>
-<p>Erledigt am: {{ journal.done_on }}</p>
+<h1><a href=" {% url 'wgapp:task_detail' journal.task.id %}">{{ journal.task.description }}</a></h1>
+<p>Erledigt am: {{ journal.done_on|date:'H:i d.m.Y' }}</p>
 <p>Erledigt von: {{ journal.done_by }}</p>
 </body>
 </html>

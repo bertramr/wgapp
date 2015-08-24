@@ -11,8 +11,8 @@
 <h1><a href=" {% url 'wgapp:journal_list' %} "> Journal </a></h1>
 {% if latest_tasks_list %}
     <ul>
-    {% for task in latest_tasks_list %}
-        <li><a href="{% url 'wgapp:task_detail' task.task.id %}">{{ task.task.description }} <br/> {{ task.done_on|date:'H:i d.m.Y'  }}  <br/> {{ task.done_by }}</a></li>
+    {% for journal in latest_tasks_list %}
+        <li><a href="{% url 'wgapp:journal_detail' journal.id %}">{{ journal.task.description }} <br/> {{ journal.done_on|date:'H:i d.m.Y'  }}  <br/> {{ journal.done_by }}</a></li>
     {% endfor %}
     </ul>
 {% else %}

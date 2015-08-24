@@ -10,7 +10,7 @@
 {% if journal_list %}
     <ul>
     {% for journal in journal_list %}
-        <li><a href="{%  url 'wgapp:journal_detail' journal.id %}">{{ journal.task.description }}</a></li>
+        <li><a href="{% url 'wgapp:journal_detail' journal.id %}">{{ journal.task.description }} ({{ journal.task.room }}) <br/> {{ journal.done_on|date:'H:i d.m.Y'  }}  <br/> {{ journal.done_by }}</a></li>
     {% endfor %}
     </ul>
 {% else %}

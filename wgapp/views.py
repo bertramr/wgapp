@@ -35,8 +35,10 @@ def room_list(request):
 
 
 def room_detail(request, room_id):
+    room = Room.objects.get(pk=room_id)
     task_list = TaskList.objects.filter(room=room_id).all()
-    context = {'task_list': task_list}
+    context = {'task_list': task_list,
+               'room': room}
     return render(request, 'wgapp/room_detail.html', context)
 
 
