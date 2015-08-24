@@ -31,4 +31,4 @@ class TaskJournal(models.Model):
     done_on = models.DateTimeField('date done')
 
     def __unicode__(self):
-        return ' '.join(self.task, self.done_by, self.done_on);
+        return ' '.join(self.task, self.done_by, self.done_on)

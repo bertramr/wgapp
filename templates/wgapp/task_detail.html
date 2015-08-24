@@ -10,7 +10,7 @@
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-<form action="{% url 'wgapp:choose_flatmate' task.id %}" method="post">
+<form action="{% url 'wgapp:task_detail' task.id %}" method="post">
 {% csrf_token %}
     {% for flatmate in flatmate_list %}
             <input type="radio" name="flatmate" id="flatmate{{ forloop.counter }}" value="{{ flatmate.id }}" />
