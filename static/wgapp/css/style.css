@@ -19,6 +19,12 @@ $cyan:      #2aa198;
 $green:     #859900;
 */
 
+@viewport {
+    width: 320px;
+    zoom: 1;
+}
+
+
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: xx-large;
