@@ -20,8 +20,10 @@ see: http://ethanschoonover.com/solarized
 */
 
 @viewport {
-    width: 320px;
+    width: device-width;
     zoom: 1;
+    min-zoom: 1;
+    max-zoom: 2;
 }
 
 body {
