@@ -1,7 +1,6 @@
 /*
 see: http://ethanschoonover.com/solarized
-*/
-:root {
+
     --base03: #002b36;
     --base02: #073642;
     --base01: #586e75;
@@ -18,7 +17,7 @@ see: http://ethanschoonover.com/solarized
     --blue: #268bd2;
     --cyan: #2aa198;
     --green: #859900;
-}
+*/
 
 @viewport {
     width: 320px;
@@ -29,13 +28,13 @@ see: http://ethanschoonover.com/solarized
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16pt;
-    background-color: var(--base03);
-    color: var(--green);
+    background-color: /*base03*/#002b36);
+    color: /*green*/#859900;
 }
 
 a {
     text-decoration: none;
-    color: var(--green);
+    color: /*green*/#859900;
     display: block;
     width: 320px;
     min-height: 48px;
@@ -52,11 +51,11 @@ li, h1, label, input[type=radio]{
     text-decoration: none;
     margin-bottom: 20px;
     padding: 2px 6px 2px 6px;
-    border-top: 5px solid var(--base1);
-    border-right: 5px solid var(--base01);
-    border-bottom: 5px solid var(--base01);
-    border-left: 5px solid var(--base1);
-    background-color: var(--base02);
+    border-top: 5px solid /*base1*/#93a1a1;
+    border-right: 5px solid /*base01*/#586e75;
+    border-bottom: 5px solid /*base01*/#586e75;
+    border-left: 5px solid /*base1*/#93a1a1;
+    background-color: /*base02*/#073642;
     width: 320px;
     min-height: 48px;
     cursor: pointer;
@@ -71,6 +70,6 @@ input[type=radio] {
 
 
 input[type=radio]:checked + label {
-    color: var(--yellow);
-    background-color: var(--base03);
+    color: /*yellow*/#b58900;
+    background-color: /*base03*/#002b36;
 }
