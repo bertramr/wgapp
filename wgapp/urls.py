@@ -12,5 +12,5 @@ urlpatterns = [
     url(r'^task/$', views.task_list, name='task_list'),
     url(r'^task/(?P<task_id>[0-9]+)/', views.task_detail, name='task_detail'),
     url(r'^journal/$', views.journal_list, name='journal_list'),
-    url(r'^journal/(?P<journal_id>[0-9]+)/', views.journal_detail, name='journal_detail')
+    url(r'^journal/(?P<journal_id>[0-9]+)/', views.journal_detail, name='journal_detail'),
 ]

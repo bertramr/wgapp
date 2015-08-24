@@ -1,0 +1,57 @@
+/*
+see: http://ethanschoonover.com/solarized
+
+$base03:    #002b36;
+$base02:    #073642;
+$base01:    #586e75;
+$base00:    #657b83;
+$base0:     #839496;
+$base1:     #93a1a1;
+$base2:     #eee8d5;
+$base3:     #fdf6e3;
+$yellow:    #b58900;
+$orange:    #cb4b16;
+$red:       #dc322f;
+$magenta:   #d33682;
+$violet:    #6c71c4;
+$blue:      #268bd2;
+$cyan:      #2aa198;
+$green:     #859900;
+*/
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: xx-large;
+    background-color: #002b36;
+    color: #b58900;
+}
+
+a {
+    text-decoration: none;
+    color: #859900;
+}
+
+ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    color: #b58900;
+}
+li {
+    margin-bottom: 20px;
+    padding: 2px 6px 2px 6px;
+    border-top: 1px solid #fdf6e3;
+    border-right: 1px solid #586e75;
+    border-bottom: 1px solid #586e75;
+    border-left: 1px solid #fdf6e3;
+    background-color: #073642;
+}
+h1 {
+    margin-bottom: 20px;
+    padding: 2px 6px 2px 6px;
+    border-top: 1px solid #fdf6e3;
+    border-right: 1px solid #586e75;
+    border-bottom: 1px solid #586e75;
+    border-left: 1px solid #fdf6e3;
+    background-color: #073642;
+}
