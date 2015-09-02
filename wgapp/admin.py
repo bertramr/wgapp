@@ -2,9 +2,9 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import Flatmate, TaskJournal, TaskList, Room
+from .models import Flatmate, Journal, Task, Room
 
 admin.site.register(Flatmate)
-admin.site.register(TaskJournal)
-admin.site.register(TaskList)
+admin.site.register(Journal)
+admin.site.register(Task)
 admin.site.register(Room)

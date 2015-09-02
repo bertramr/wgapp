@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+        {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{%  static  'wgapp/css/style.css' %}" />
+</head>
+<body>
+
+<h1>{{ task.description }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'wgapp:perform_task' task.id %}" method="post">
+{% csrf_token %}
+    {% for flatmate in flatmate_list %}
+            <input type="radio" name="flatmate" id="flatmate{{ forloop.counter }}" value="{{ flatmate.id }}" />
+            <label for="flatmate{{ forloop.counter }}">{{ flatmate.full_name }}</label><br />
+    {% endfor %}
+<input type="submit" value="Done" />
+</form>
+
+</body>
+</html>

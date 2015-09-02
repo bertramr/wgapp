@@ -18,16 +18,17 @@ class Room(models.Model):
         return self.name
 
 
-class TaskList(models.Model):
+class Task(models.Model):
     room = models.ForeignKey(Room)
     description = models.CharField(max_length=200)
 
     def __unicode__(self):
         return ': '.join([self.description, self.room.name])
 
-class TaskJournal(models.Model):
+
+class Journal(models.Model):
     done_by = models.ForeignKey(Flatmate)
-    task = models.ForeignKey(TaskList)
+    task = models.ForeignKey(Task)
     done_on = models.DateTimeField('date done')
 
     def __unicode__(self):

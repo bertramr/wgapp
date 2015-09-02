@@ -10,16 +10,10 @@
 
 <h1>{{ task.description }}</h1>
 
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+<p>
 
-<form action="{% url 'wgapp:task_detail' task.id %}" method="post">
-{% csrf_token %}
-    {% for flatmate in flatmate_list %}
-            <input type="radio" name="flatmate" id="flatmate{{ forloop.counter }}" value="{{ flatmate.id }}" />
-            <label for="flatmate{{ forloop.counter }}">{{ flatmate.full_name }}</label><br />
-    {% endfor %}
-<input type="submit" value="Done" />
-</form>
+<a href="{% url 'wgapp:perform_task' task.id %}">Ich erledige das</a>
 
+</p>
 </body>
 </html>

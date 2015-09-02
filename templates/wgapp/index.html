@@ -11,9 +11,9 @@
 <h1><a href=" {% url 'wgapp:room_list' %} "> Räume </a></h1>
 <h1><a href=" {% url 'wgapp:task_list' %} "> Aufgaben </a></h1>
 <h1><a href=" {% url 'wgapp:journal_list' %} "> Journal </a></h1>
-{% if latest_tasks_list %}
+{% if object_list %}
     <ul>
-    {% for journal in latest_tasks_list %}
+    {% for journal in object_list %}
         <li><a href="{% url 'wgapp:journal_detail' journal.id %}">{{ journal.task.description }} <br/> {{ journal.done_on|date:'H:i d.m.Y'  }}  <br/> {{ journal.done_by }}</a></li>
     {% endfor %}
     </ul>
