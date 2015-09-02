@@ -28,15 +28,15 @@ see: http://ethanschoonover.com/solarized
 
 body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 16pt;
-    background-color: /*base03*/ #002b36;
-    color: /*green*/ #859900;
-    width: 100%;
+    font-size: 12pt;
+    background-color: /*base3*/ #fdf6e3;
+    color: /*base03*/ #002b36;
+    width: 320px;
 }
 
 a {
     text-decoration: none;
-    color: /*green*/ #859900;
+    color: /*base03*/ #002b36;
     display: block;
     width: 100%;
     min-height: 48px;
@@ -50,29 +50,23 @@ ul {
 
 li, h1, label, input[type=radio], input[type=submit] {
     text-decoration: none;
-    margin-bottom: 20px;
-    padding: 2px 6px 2px 6px;
-    border-top: 5px solid /*base1*/ #93a1a1;
-    border-right: 5px solid /*base01*/ #586e75;
-    border-bottom: 5px solid /*base01*/ #586e75;
-    border-left: 5px solid /*base1*/ #93a1a1;
-    background-color: /*base02*/ #073642;
+    border-bottom: 1px solid /*base1*/ #93a1a1;
+    background-color: /*base3*/ #fdf6e3;
     width: 100%;
     min-height: 48px;
     cursor: pointer;
     display: block;
-    text-align: center;
+    text-align: left;
 }
 
-li:hover {
-    background-color: /*base03*/ #002b36;
+a:hover, label:hover, input[type=radio]:hover, input[type=submit]:hover {
+    background-color: /*base2*/ #eee8d5;
 }
 
 input[type=submit]{
-    padding: 2px 6px 2px 6px;
-    background-color: /*base01*/ #586e75;
+    background-color: /*base3*/ #fdf6e3;
     color: /*red*/ #dc322f;
-    font-size: 16pt;
+    font-size: 12pt;
     width: 100%;
 }
 
@@ -82,5 +76,5 @@ input[type=radio] {
 
 input[type=radio]:checked + label {
     color: /*yellow*/ #b58900;
-    background-color: /*base03*/ #002b36;
+    background-color: /*base2*/ #eee8d5;
 }
