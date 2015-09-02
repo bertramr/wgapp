@@ -32,6 +32,12 @@ class TaskListView(generic.ListView):
 class TaskDetailView(generic.DetailView):
     model = Task
 
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super(TaskDetailView, self).get_context_data(**kwargs)
+        context['latest_done'] = Journal.objects.order_by('-done_on').filter(task=self.object)[:1]
+        return context
+
 
 class RoomListView(generic.ListView):
     model = Room
@@ -71,6 +77,9 @@ def perform_task(request, pk):
 
 class JournalListView(generic.ListView):
     model = Journal
+
+    def get_queryset(self):
+        return self.model.objects.order_by('-done_on')
 
 
 class JournalDetailView(generic.DetailView):
