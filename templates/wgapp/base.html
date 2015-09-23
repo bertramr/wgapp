@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>{% block title %}WG app{% endblock %}</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static  'wgapp/css/style.css' %}"/>
+</head>
+<body>
+<div id="header">
+    {% block header %}
+        <h1>Header</h1>
+    {% endblock %}
+</div>
+<div id="content">
+    {% block content %}
+        Content
+    {% endblock %}
+</div>
+<div class="footer">
+    {% block footer %}
+        <div>
+            <a href=" {% url 'wgapp:flatmate_list' %} "> <img src=" {% static 'wgapp/img/flatastic/png/48/users.png' %}"
+                                                              alt="Mitbewohner"/> </a>
+        </div>
+        <div>
+            <a href=" {% url 'wgapp:room_list' %} "> <img src=" {% static 'wgapp/img/flatastic/png/48/Home.png' %}"
+                                                          alt="Räume"/> </a>
+        </div>
+        <div>
+            <a href=" {% url 'wgapp:task_list' %} "> <img src="{% static 'wgapp/img/flatastic/png/48/checklist.png' %}"
+                                                          alt="Aufgaben"/> </a>
+        </div>
+        <div>
+            <a href=" {% url 'wgapp:journal_list' %} "> <img
+                    src="{% static 'wgapp/img/flatastic/png/48/Calendar-selection-day.png' %}" alt="Journal"/> </a>
+        </div>
+    {% endblock %}
+</div>
+</body>
+</html>

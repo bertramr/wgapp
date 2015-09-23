@@ -31,10 +31,16 @@ body {
     font-size: 12pt;
     background-color: /*base3*/ #fdf6e3;
     color: /*base03*/ #002b36;
-    width: 320px;
+    width: 300px;
 }
 
-a {
+.footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+a .content{
     text-decoration: none;
     color: /*base03*/ #002b36;
     display: block;

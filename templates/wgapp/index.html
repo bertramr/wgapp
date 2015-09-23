@@ -1,24 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-    {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{%  static  'wgapp/css/style.css' %}" />
-</head>
-<body>
-<h1><a href=" {% url 'wgapp:flatmate_list' %} "> Mitbewohner </a></h1>
-<h1><a href=" {% url 'wgapp:room_list' %} "> Räume </a></h1>
-<h1><a href=" {% url 'wgapp:task_list' %} "> Aufgaben </a></h1>
-<h1><a href=" {% url 'wgapp:journal_list' %} "> Journal </a></h1>
-{% if object_list %}
-    <ul>
-    {% for journal in object_list %}
-        <li><a href="{% url 'wgapp:journal_detail' journal.id %}">{{ journal.task.description }} <br/> {{ journal.done_on|date:'H:i d.m.Y'  }}  <br/> {{ journal.done_by }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No tasks were done.</p>
-{% endif %}
-</body>
-</html>
+{% extends "wgapp/base.html" %}
+
+{% block title %} Index {% endblock %}
+
+{% block header %}
+    {% load staticfiles%}
+    <h1><a href=" {% url 'wgapp:flatmate_list' %} "> <img src=" {% static 'wgapp/img/flatastic/png/32/users.png' %}" /> Mitbewohner </a></h1>
+    <h1><a href=" {% url 'wgapp:room_list' %} "> <img src=" {% static 'wgapp/img/flatastic/png/32/Home.png' %}" /> Räume </a></h1>
+    <h1><a href=" {% url 'wgapp:task_list' %} "> <img src="{% static 'wgapp/img/flatastic/png/32/checklist.png' %}" />Aufgaben </a></h1>
+    <h1><a href=" {% url 'wgapp:journal_list' %} "> <img src="{% static 'wgapp/img/flatastic/png/32/Calendar-selection-day.png' %}" />Journal </a></h1>
+{% endblock %}
+
+{% block content %}
+    {% if object_list %}
+        <ul>
+            {% for journal in object_list %}
+                <li><a href="{% url 'wgapp:journal_detail' journal.id %}">{{ journal.task.description }} <br/> {{ journal.done_on|date:'H:i d.m.Y'  }}  <br/> {{ journal.done_by }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No tasks were done.</p>
+    {% endif %}
+{% endblock %}
+
