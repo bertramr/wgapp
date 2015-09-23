@@ -1,19 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-        {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{%  static  'wgapp/css/style.css' %}" />
-</head>
-<body>
+{% extends "wgapp/base.html" %}
 
-<h1>Rooms</h1>
+{% block content %}
+    <h1>Räume</h1>
 <ul>
 {% for room in room_list.all %}
     <li><a href="{% url 'wgapp:room_detail' room.id %}">{{ room.name }}</a></li>
 {% endfor %}
 </ul>
-
-</body>
-</html>
+{% endblock %}

@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-        {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{%  static  'wgapp/css/style.css' %}" />
-</head>
-<body>
-<h1>Erledigte Aufgaben</h1>
+{% extends "wgapp/base.html" %}
 
+{% block content %}
+    <h1>Erledigte Aufgaben</h1>
 {% if journal_list %}
     <ul>
     {% for journal in journal_list %}
@@ -18,5 +11,4 @@
 {% else %}
     <p>No tasks are listed.</p>
 {% endif %}
-</body>
-</html>
+{% endblock %}

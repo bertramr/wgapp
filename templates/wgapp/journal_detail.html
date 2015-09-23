@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-        {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{%  static  'wgapp/css/style.css' %}" />
-</head>
-<body>
+{% extends "wgapp/base.html" %}
 
+{% block content %}
 <h1><a href=" {% url 'wgapp:task_detail' journal.task.id %}">{{ journal.task.description }}</a></h1>
 <p>Erledigt am: {{ journal.done_on|date:'H:i d.m.Y' }}</p>
 <p>Erledigt von: {{ journal.done_by }}</p>
-</body>
-</html>
+{% endblock %}

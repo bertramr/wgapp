@@ -1,22 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-        {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{%  static  'wgapp/css/style.css' %}" />
-</head>
-<body>
-<h1>Mitbewohner</h1>
+{% extends "wgapp/base.html" %}
 
-{% if flatmate_list %}
-    <ul>
-    {% for flatmate in flatmate_list %}
-        <li><a href="{%  url 'wgapp:flatmate_detail' flatmate.id %}">{{ flatmate.full_name }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No Flatmates are listed.</p>
-{% endif %}
-</body>
-</html>
+{% block content %}
+    <h1>Mitbewohner</h1>
+    {% if flatmate_list %}
+        <ul>
+            {% for flatmate in flatmate_list %}
+                <li><a href="{% url 'wgapp:flatmate_detail' flatmate.id %}">{{ flatmate.full_name }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No Flatmates are listed.</p>
+    {% endif %}
+{% endblock %}

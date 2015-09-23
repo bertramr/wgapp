@@ -2,15 +2,8 @@
 
 {% block title %} Index {% endblock %}
 
-{% block header %}
-    {% load staticfiles%}
-    <h1><a href=" {% url 'wgapp:flatmate_list' %} "> <img src=" {% static 'wgapp/img/flatastic/png/32/users.png' %}" /> Mitbewohner </a></h1>
-    <h1><a href=" {% url 'wgapp:room_list' %} "> <img src=" {% static 'wgapp/img/flatastic/png/32/Home.png' %}" /> Räume </a></h1>
-    <h1><a href=" {% url 'wgapp:task_list' %} "> <img src="{% static 'wgapp/img/flatastic/png/32/checklist.png' %}" />Aufgaben </a></h1>
-    <h1><a href=" {% url 'wgapp:journal_list' %} "> <img src="{% static 'wgapp/img/flatastic/png/32/Calendar-selection-day.png' %}" />Journal </a></h1>
-{% endblock %}
-
 {% block content %}
+    <h1>Index</h1>
     {% if object_list %}
         <ul>
             {% for journal in object_list %}

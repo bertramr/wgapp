@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-        {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{%  static  'wgapp/css/style.css' %}" />
-</head>
-<body>
+{% extends "wgapp/base.html" %}
+
+{% block content %}
 
 <h1>{{ task.description }}</h1>
 
@@ -15,5 +9,4 @@
 <p>
 <a href="{% url 'wgapp:perform_task' task.id %}">Ich erledige das jetzt</a>
 </p>
-</body>
-</html>
+{% endblock %}

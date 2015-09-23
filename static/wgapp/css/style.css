@@ -34,13 +34,13 @@ body {
     width: 300px;
 }
 
-.footer {
+#footer, #header {
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
-a .content{
+#content a {
     text-decoration: none;
     color: /*base03*/ #002b36;
     display: block;

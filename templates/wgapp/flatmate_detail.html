@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-        {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{%  static  'wgapp/css/style.css' %}" />
-</head>
-<body>
+{% extends "wgapp/base.html" %}
+
+{% block content %}
 <h1>Mitbewohner: {{ flatmate.full_name }}</h1>
 <ul>
 {% for done_tasks in flatmate.done_tasks.all %}
     <li>{{ done_tasks.done_on }}</li>
 {% endfor %}
 </ul>
-</body>
-</html>
+{% endblock %}
