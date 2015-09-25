@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}WG app{% endblock %}</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
     {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{% static  'wgapp/css/style.css' %}"/>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'jquery/mobile/jquery.mobile-1.4.5.min.css' %}" />
+    <!-- <link rel="stylesheet" type="text/css" href="{-% static 'bootstrap-3.3.5-dist/css/bootstrap.min.css' %}" /> -->
+    <!-- <link rel="stylesheet" type="text/css" href="{-% static 'wgapp/css/style.css' %}" /> -->
+
+    <title>{% block title %}WG app{% endblock %}</title>
 </head>
 <body>
+<script src="{% static 'jquery/jquery-2.1.4.min.js' %}"></script>
+<script src="{% static 'jquery/mobile/jquery.mobile-1.4.5.min.js' %}"></script>
+<!--<script src="{% static 'bootstrap-3.3.5-dist/js/bootstrap.min.js' %}"></script>-->
+
 <div id="header">
     {% block header %}
         <div>
