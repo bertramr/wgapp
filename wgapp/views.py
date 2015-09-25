@@ -28,6 +28,12 @@ class FlatmateDetailView(generic.DetailView):
 class TaskListView(generic.ListView):
     model = Task
 
+    def get_context_data(self, **kwargs):
+        context = super(TaskListView, self).get_context_data(**kwargs)
+        context['flatmate_list'] = Flatmate.objects.all()
+        return context
+
+
 
 class TaskDetailView(generic.DetailView):
     model = Task
