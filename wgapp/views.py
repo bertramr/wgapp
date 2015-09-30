@@ -61,7 +61,7 @@ class RoomDetailView(generic.DetailView):
 
 
 def perform_task(request):
-    context = {'today': date.today().strftime('%d.%m.%Y'),
+    context = {'today': date.today().strftime('%Y-%m-%d'),
                'room_list': Room.objects.all(),
                'flatmate_list': Flatmate.objects.all()}
     try:
@@ -85,7 +85,7 @@ def perform_task(request):
             tj = Journal()
             tj.task = task
             tj.done_by = flatmate
-            tj.done_on = datetime.strptime(date_input, '%d.%m.%Y')
+            tj.done_on = datetime.strptime(date_input, '%Y-%m-%d')
             tj.save()
         # Always return an HttpResponseRedirect after successfully dealing
         # with POST data. This prevents data from being posted twice if a
