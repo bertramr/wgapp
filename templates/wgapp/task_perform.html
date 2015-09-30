@@ -1,18 +1,38 @@
 {% extends "wgapp/base.html" %}
 
+{% load staticfiles %}
+
 {% block content %}
+    <h1>
+        <img src="{% static 'wgapp/img/flatastic/png/48/checklist.png' %}" alt="Aufgaben"/>
+            Aufgabenliste
+    </h1>
 
-<h1>{{ task.description }}</h1>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-
-<form action="{% url 'wgapp:perform_task' task.id %}" method="post">
-{% csrf_token %}
-    {% for flatmate in flatmate_list %}
+    <form action="{% url 'wgapp:perform_task' %}" method="post" data-ajax="false">
+    {% csrf_token %}
+    <fieldset data-role="controlgroup" data-type="horizontal">
+        <legend>W&auml;hle Mitbewohner/in:</legend>
+        {% for flatmate in flatmate_list %}
             <input type="radio" name="flatmate" id="flatmate{{ forloop.counter }}" value="{{ flatmate.id }}" />
-            <label for="flatmate{{ forloop.counter }}">{{ flatmate.full_name }}</label><br />
+            <label for="flatmate{{ forloop.counter }}">{{ flatmate.full_name }}</label>
     {% endfor %}
-<input type="submit" value="Done" />
-</form>
+    </fieldset>
+    <input type="date" name="date" id="date" value="{{ today }}" />
 
+    <input type="submit" value="Done" />
+    <fieldset data-role="controlgroup">
+    <legend>W&auml;hle Aufgaben:</legend>
+    {% for room in room_list %}
+    <div data-role="collapsible">
+    <h1>{{ room.name }}</h1>
+        {% for task in room.task_set.all %}
+            <input type="checkbox" name="task" id="task{{ task.id }}" value="{{ task.id }}" />
+            <label for="task{{ task.id }}">{{ task.description }}</label>
+        {% endfor %}
+    </div>
+    {% endfor %}
+    </fieldset>
+    </form>
 {% endblock %}

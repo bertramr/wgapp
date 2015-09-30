@@ -7,6 +7,6 @@
 <p>Zuletzt erledigt: {% for latest in latest_done %} {{ latest.done_on  | date}} {% endfor %}
 </p>
 <p>
-<a href="{% url 'wgapp:perform_task' task.id %}">Ich erledige das jetzt</a>
+<a href="{% url 'wgapp:perform_task' %}">Ich erledige das jetzt</a>
 </p>
 {% endblock %}

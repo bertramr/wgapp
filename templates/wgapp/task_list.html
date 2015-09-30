@@ -1,30 +1,13 @@
 {% extends "wgapp/base.html" %}
-{% load staticfiles %}
+
 {% block content %}
-    <h1>
-        <img src="{% static 'wgapp/img/flatastic/png/48/checklist.png' %}"
-                                                          alt="Aufgaben"/>
-            Aufgabenliste
-    </h1>
+    <h1>Aufgaben</h1>
 {% if task_list %}
-    <form>
-    <fieldset data-role="controlgroup" data-type="horizontal">
-        <legend>W&auml;hle Mitbewohner/in:</legend>
-        {% for flatmate in flatmate_list %}
-            <input type="radio" name="flatmate" id="flatmate{{ forloop.counter }}" value="{{ flatmate.id }}" />
-            <label for="flatmate{{ forloop.counter }}">{{ flatmate.full_name }}</label>
+    <ul>
+    {% for task in task_list %}
+        <li><a href="{%  url 'wgapp:task_detail' task.id %}">{{ task.description }}</a></li>
     {% endfor %}
-    </fieldset>
-    <input class="datepicker-inline" />
-    <input type="submit" value="Done" />
-    <fieldset data-role="controlgroup">
-    <legend>W&auml;hle Aufgaben:</legend>
-        {% for task in task_list %}
-            <input type="checkbox" name="task" id="task{{ forloop.counter }}" value="{{ task.id }}" />
-            <label for="task{{ forloop.counter }}">{{ task.description }}</label>
-        {% endfor %}
-    </fieldset>
-    </form>
+    </ul>
 {% else %}
     <p>No tasks are listed.</p>
 {% endif %}

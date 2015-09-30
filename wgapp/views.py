@@ -5,6 +5,7 @@ from django.core.urlresolvers import reverse
 from django.views import generic
 
 from datetime import datetime
+from datetime import date
 
 from models import Journal, Flatmate, Room, Task
 
@@ -30,9 +31,9 @@ class TaskListView(generic.ListView):
 
     def get_context_data(self, **kwargs):
         context = super(TaskListView, self).get_context_data(**kwargs)
+        context['room_list'] = Room.objects.all()
         context['flatmate_list'] = Flatmate.objects.all()
         return context
-
 
 
 class TaskDetailView(generic.DetailView):
@@ -59,26 +60,37 @@ class RoomDetailView(generic.DetailView):
         return context
 
 
-def perform_task(request, pk):
-    task = get_object_or_404(Task, pk=pk)
-    flatmate_list = Flatmate.objects.all()
-    context = {'flatmate_list': flatmate_list,
-               'task': task}
+def perform_task(request):
+    context = {'today': date.today().strftime('%d.%m.%Y'),
+               'room_list': Room.objects.all(),
+               'flatmate_list': Flatmate.objects.all()}
     try:
         flatmate_id = request.POST['flatmate']
-    except (KeyError, Flatmate.DoesNotExist):
-        # Redisplay the question voting form.
+    except(KeyError, Flatmate.DoesNotExist):
         return render(request, 'wgapp/task_perform.html', context)
+
+    try:
+        task_id = request.POST.getlist('task')
+
+    except(KeyError, Task.DoesNotExist):
+        return render(request, 'wgapp/task_perform.html', context)
+
     else:
-        tj = Journal()
-        tj.task = task
-        tj.done_by = Flatmate.objects.get(pk=flatmate_id)
-        tj.done_on = datetime.now()
-        tj.save()
+        date_input = request.POST['date']
+        flatmate = Flatmate.objects.get(pk=flatmate_id)
+
+        for t in task_id:
+            task = Task.objects.get(pk=t)
+
+            tj = Journal()
+            tj.task = task
+            tj.done_by = flatmate
+            tj.done_on = datetime.strptime(date_input, '%d.%m.%Y')
+            tj.save()
         # Always return an HttpResponseRedirect after successfully dealing
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
-        return HttpResponseRedirect(reverse('wgapp:task_detail', args=(task.id,)))
+        return HttpResponseRedirect(reverse('wgapp:journal_list',))
 
 
 class JournalListView(generic.ListView):

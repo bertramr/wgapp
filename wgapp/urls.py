@@ -11,7 +11,7 @@ urlpatterns = [
     url(r'^room/(?P<pk>[0-9]+)/$', views.RoomDetailView.as_view(), name='room_detail'),
     url(r'^task/$', views.TaskListView.as_view(), name='task_list'),
     url(r'^task/(?P<pk>[0-9]+)/$', views.TaskDetailView.as_view(), name='task_detail'),
-    url(r'^task/(?P<pk>[0-9]+)/perform/$', views.perform_task, name='perform_task'),
+    url(r'^task/perform/$', views.perform_task, name='perform_task'),
     url(r'^journal/$', views.JournalListView.as_view(), name='journal_list'),
     url(r'^journal/(?P<pk>[0-9]+)/$', views.JournalDetailView.as_view(), name='journal_detail'),
 ]
