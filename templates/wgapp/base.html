@@ -17,6 +17,11 @@
 </head>
 <body>
 <script src="{% static 'jquery/jquery-2.1.4.min.js' %}"></script>
+<script type="text/javascript">
+$(document).bind("mobileinit", function () {
+    $.mobile.ajaxEnabled = false;
+});
+</script>
 <script src="{% static 'jquery/mobile/jquery.mobile-1.4.5.min.js' %}"></script>
 <!--<script src="{-% static 'bootstrap-3.3.5-dist/js/bootstrap.min.js' %}"></script>-->
 
@@ -24,24 +29,20 @@
     {% block header %}
         <ul>
         <li>
-            <a href=" {% url 'wgapp:index' %}"> <img src=" {% static 'wgapp/img/flatastic/png/48/back.png' %}"
+            <a href=" {% url 'wgapp:index' %}"> <img src=" {% static 'wgapp/img/flatastic/png/48/Home.png' %}"
                                                      alt="Home"/> </a>
         </li>
         <li>
-            <a href=" {% url 'wgapp:flatmate_list' %} "> <img src=" {% static 'wgapp/img/flatastic/png/48/users.png' %}"
-                                                              alt="Mitbewohner"/> </a>
-        </li>
-        <li>
-            <a href=" {% url 'wgapp:room_list' %} "> <img src=" {% static 'wgapp/img/flatastic/png/48/Home.png' %}"
-                                                          alt="Räume"/> </a>
-        </li>
-        <li>
-            <a href=" {% url 'wgapp:task_list' %} "> <img src="{% static 'wgapp/img/flatastic/png/48/checklist.png' %}"
+            <a href=" {% url 'wgapp:perform_task' %} "> <img src="{% static 'wgapp/img/flatastic/png/48/checklist.png' %}"
                                                           alt="Aufgaben"/> </a>
+        </li>
+            <li>
+            <a href=" {% url 'wgapp:task_list' %} "> <img
+                    src="{% static 'wgapp/img/flatastic/png/48/edit.png' %}" alt="Bearbeiten"/> </a>
         </li>
         <li>
             <a href=" {% url 'wgapp:journal_list' %} "> <img
-                    src="{% static 'wgapp/img/flatastic/png/48/Calendar-selection-day.png' %}" alt="Journal"/> </a>
+                    src="{% static 'wgapp/img/flatastic/png/48/Reports.png' %}" alt="Reports"/> </a>
         </li>
         </ul>
     {% endblock %}

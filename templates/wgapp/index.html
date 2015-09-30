@@ -5,9 +5,10 @@
 {% block content %}
     <h1>Index</h1>
     {% if object_list %}
-        <ul>
+        <ul data-role="listview">
             {% for journal in object_list %}
-                <li><a href="{% url 'wgapp:journal_detail' journal.id %}">{{ journal.task.description }} <br/> {{ journal.done_on|date:'H:i d.m.Y'  }}  <br/> {{ journal.done_by }}</a></li>
+                <li><a href="{% url 'wgapp:journal_detail' journal.id %}">{{ journal.task.description }} <span class="ui-li-count">
+                    {{ journal.done_on|date:'d.m.Y'  }}</span>  <br/> {{ journal.done_by }} </a></li>
             {% endfor %}
         </ul>
     {% else %}

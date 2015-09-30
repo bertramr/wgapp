@@ -29,7 +29,10 @@
     <h1>{{ room.name }}</h1>
         {% for task in room.task_set.all %}
             <input type="checkbox" name="task" id="task{{ task.id }}" value="{{ task.id }}" />
-            <label for="task{{ task.id }}">{{ task.description }}</label>
+            <label for="task{{ task.id }}">
+                {{ task.description }}
+                <span class="ui-li-count">{{ task.journal_set.last.done_on|date:'d.m.Y' }}</span>
+            </label>
         {% endfor %}
     </div>
     {% endfor %}
